@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Abdullah Working\\New Project\\ADOWEBAPP\\MvcMovie\\MvcMovie.csproj": {}
+    "C:\\Users\\Sunny\\Desktop\\MvcMovie\\MvcMovie.csproj": {}
   },
   "projects": {
-    "D:\\Abdullah Working\\New Project\\ADOWEBAPP\\MvcMovie\\MvcMovie.csproj": {
+    "C:\\Users\\Sunny\\Desktop\\MvcMovie\\MvcMovie.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Abdullah Working\\New Project\\ADOWEBAPP\\MvcMovie\\MvcMovie.csproj",
+        "projectUniqueName": "C:\\Users\\Sunny\\Desktop\\MvcMovie\\MvcMovie.csproj",
         "projectName": "MvcMovie",
-        "projectPath": "D:\\Abdullah Working\\New Project\\ADOWEBAPP\\MvcMovie\\MvcMovie.csproj",
-        "packagesPath": "C:\\Users\\Abdullah Shah\\.nuget\\packages\\",
-        "outputPath": "D:\\Abdullah Working\\New Project\\ADOWEBAPP\\MvcMovie\\obj\\",
+        "projectPath": "C:\\Users\\Sunny\\Desktop\\MvcMovie\\MvcMovie.csproj",
+        "packagesPath": "C:\\Users\\Sunny\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sunny\\Desktop\\MvcMovie\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Abdullah Shah\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Sunny\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,21 +34,55 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.27, 6.0.27]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.27, 6.0.27]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -55,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
