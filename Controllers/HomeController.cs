@@ -3,15 +3,18 @@ using Microsoft.AspNetCore.Mvc;
 using MvcMovie.Models;
 using DataAccessLayer;
 using Models;
+using Microsoft.AspNetCore.SignalR;
 
 namespace MvcMovie.Controllers;
 
 public class HomeController : Controller
-{ 
+{
+    private readonly IHubContext<StudentHub> _hubContext;
     private readonly EmployeesDAL empDAL;
-    public HomeController( )
+    public HomeController(IHubContext<StudentHub> hubContext)
     {
         empDAL = new EmployeesDAL();
+        _hubContext = hubContext;
     }
 
     public IActionResult Index()
@@ -25,10 +28,18 @@ public class HomeController : Controller
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Create(Employees emp)
+    public async Task<IActionResult> Create(Employees emp)
     {
         try {
+            // Verify if emp.Id is correctly set
             empDAL.AddEmployee(emp);
+            if (emp.Id == 0)
+            {
+                // Handle the error appropriately, perhaps log it
+                throw new Exception("Failed to retrieve the newly created employee Id.");
+            }
+            await _hubContext.Clients.All.SendAsync("ReceiveStudentRecord", emp);
+             
             return RedirectToAction("Index");
         }
         catch (Exception ex)
@@ -88,4 +99,5 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
 }

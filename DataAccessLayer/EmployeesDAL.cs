@@ -43,8 +43,20 @@ namespace DataAccessLayer
                 cmd.Parameters.AddWithValue("@age", obj.Age);
                 cmd.Parameters.AddWithValue("@designation", obj.Designation);
                 cmd.Parameters.AddWithValue("@city", obj.City);
+
+                // Add output parameter for the Id
+                SqlParameter idParam = new SqlParameter
+                {
+                    ParameterName = "@id",
+                    SqlDbType = SqlDbType.Int,
+                    Direction = ParameterDirection.Output
+                };
+                cmd.Parameters.Add(idParam);
                 con.Open();
                 cmd.ExecuteNonQuery();
+
+                // Retrieve the generated Id
+                obj.Id = (int)idParam.Value;
             }
         }
 
